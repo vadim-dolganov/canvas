@@ -1,0 +1,9 @@
+[submodule "shape/libs/glew"]
+	path = shape/libs/glew
+	url = git@github.com:gagik12/glew.git
+[submodule "shape/libs/SDL2"]
+	path = shape/libs/SDL2
+	url = git@github.com:gagik12/SDL2.git
+[submodule "shape/libs/glm"]
+	path = shape/libs/glm
+	url = git@github.com:gagik12/glm.git

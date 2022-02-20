@@ -1,0 +1,17 @@
+Shape with minimum perimeter:
+Circle:   S = 3.14159  P = 6.28319  ColorOutline = #000000  Radius = 1  FillColor = #000000
+The shape with the largest area:
+Triangle:   S = 8250  P = 429.531  ColorOutline = #000000  FillColor = #00b0f0
+|SHAPES|
+>Circle:   S = 7853.98  P = 314.159  ColorOutline = #ffc100  Radius = 50  FillColor = #ffff00
+>Circle:   S = 2827.43  P = 188.496  ColorOutline = #000000  Radius = 30  FillColor = #00b0f0
+>Line:   S = 0  P = 110.68  ColorOutline = #000000
+>Rectangle:   S = 1050  P = 170  ColorOutline = #000000  Width = 15  Height = 70  FillColor = #fcd5b5
+>Rectangle:   S = 1050  P = 170  ColorOutline = #000000  Width = 15  Height = 70  FillColor = #fcd5b5
+>Rectangle:   S = 500  P = 120  ColorOutline = #000000  Width = 50  Height = 10  FillColor = #4f81bd
+>Rectangle:   S = 500  P = 120  ColorOutline = #000000  Width = 50  Height = 10  FillColor = #4f81bd
+>Triangle:   S = 8250  P = 429.531  ColorOutline = #000000  FillColor = #00b0f0
+>Circle:   S = 1963.5  P = 157.08  ColorOutline = #000000  Radius = 25  FillColor = #fcd5b5
+>Circle:   S = 3.14159  P = 6.28319  ColorOutline = #000000  Radius = 1  FillColor = #000000
+>Circle:   S = 3.14159  P = 6.28319  ColorOutline = #000000  Radius = 1  FillColor = #000000
+>Line:   S = 0  P = 8  ColorOutline = #00b0f0
