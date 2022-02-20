@@ -45,19 +45,25 @@ Color CTrapezoid::GetFillColor() const
 
 float CTrapezoid::GetArea() const
 {
-	return m_width * m_height;
+	return m_width * m_height / 2;
 };
 
 float CTrapezoid::GetPerimeter() const
 {
-	return 2 * (m_width + m_height);
+
+	return 4 * (sqrt(pow(m_width/2, 2) + (m_height / 2, 2)));
 };
 
 void CTrapezoid::AppendProperties(std::ostream & strm) const
 {
 	strm << "  Width = " << m_width
 		<< "  Height = " << m_height
-		<< "  LeftTop Coordinate  = " << m_vertices[0].x << " : " << m_vertices[0].y;
+		<< "  Perimeter = " << GetPerimeter()
+		<< "  Area = " << GetArea()
+		<< "  Coordinate 1 point  = " << m_vertices[0].x << " : " << m_vertices[0].y
+		<< "  Coordinate 2 point  = " << m_vertices[1].x << " : " << m_vertices[1].y
+		<< "  Coordinate 3 point  = " << m_vertices[2].x << " : " << m_vertices[2].y
+		<< "  Coordinate 4 point  = " << m_vertices[3].x << " : " << m_vertices[3].y;
 }
 
 void CTrapezoid::Draw(ICanvas & canvas) const

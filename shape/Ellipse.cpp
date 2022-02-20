@@ -51,7 +51,11 @@ float CEllipse::GetPerimeter() const
 
 void CEllipse::AppendProperties(std::ostream & strm) const
 {
-	strm << "  Radius = " << m_radius_x;
+	strm << "  x_RADIUS = " << m_radius_x
+		<< "  Y_RADIUS  = " << m_radius_y
+		<< "  Perimeter = " << GetPerimeter()
+		<< "  Area = " << GetArea()
+		<< "  Center  = " << m_center.x << " : " << m_center.y;
 }
 
 void CEllipse::Draw(ICanvas & canvas) const

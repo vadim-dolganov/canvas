@@ -155,7 +155,7 @@ bool CRemoteControl::CreateEllipse(std::istream & args)
 	if (tokens.size() != 8)
 	{
 		m_output << "Invalid number of parameters!!!\n"
-			<< "Usage: <center_x> <center_y> <radius_x> <radius_y> <fillColor> <move_x> <move_y>\n";
+			<< "Usage: <center_x> <center_y> <radius_x> <radius_y> <fillColor> <move_x> <move_y> <rotation_angle>\n";
 		return false;
 	}
 	Point position;
@@ -194,7 +194,7 @@ bool CRemoteControl::CreateRectangle(std::istream & args)
 	if (tokens.size() != 9)
 	{
 		m_output << "Invalid number of parameters!!!\n"
-			<< "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y>\n";
+			<< "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y> <rotation_angle>\n";
 		return false;
 	}
 	Point position;
@@ -235,7 +235,7 @@ bool CRemoteControl::CreateTrapezoid(std::istream & args)
 	if (tokens.size() != 9)
 	{
 		m_output << "Invalid number of parameters!!!\n"
-			<< "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y>\n";
+			<< "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y> <rotation_angle>\n";
 		return false;
 	}
 	Point position;
@@ -276,7 +276,7 @@ bool CRemoteControl::CreateTriangle(std::istream & args)
     if (tokens.size() != 11)
     {
         m_output << "Invalid number of parameters!!!\n"
-            << "Usage: <x1> <y1> <x2> <y2> <x3> <y3> <colorOutline> <fillColor> <move_x> <move_y>\n";
+            << "Usage: <x1> <y1> <x2> <y2> <x3> <y3> <colorOutline> <fillColor> <move_x> <move_y> <rotation_angle>\n";
         return false;
     }
     Point vertex1;
