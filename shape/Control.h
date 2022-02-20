@@ -7,6 +7,7 @@
 #include "Ellipse.h"
 #include "Rhombus.h"
 #include "Triangle.h"
+#include "Trapezoid.h"
 #include "Color.h"
 
 class IShape;
@@ -24,6 +25,7 @@ private:
 	bool CreateRhombus(std::istream & args);
 	bool CreateTriangle(std::istream & args);
 	bool CreateEllipse(std::istream & args);
+	bool CreateTrapezoid(std::istream & args);
     std::vector<std::string> GetTokens(std::string const& shapeSpecification) const;
 private:
     typedef std::map<std::string, std::function<bool(std::istream & args)>> ActionMap;

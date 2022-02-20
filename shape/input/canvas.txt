@@ -1,8 +1,10 @@
-rectangle 200 400 50 100 #ffff00 #ffff00 30 40 90
-rectangle 200 400 50 100 #ffff00 #ffff00 30 40 0
-rhombus 400 300 50 100 #ffff00 #ffff00 30 40 0 
-rhombus 400 300 50 100 #ffff00 #ffff00 30 40 90 
-ellipse 200 200 100 50 #ffc100 0 0 0
-ellipse 200 200 100 50 #ffc100 0 0 90
-triangle 200 200 250 250 150 250 #ffff00 #ffff00 0 0 0
+rectangle 100 500 50 100 #ffff00 #ffff00 0 0 90
+rectangle 100 500 50 100 #ffff00 #ffff00 0 -150 0
+rhombus 400 450 50 100 #ffff00 #ffff00 0 0 0 
+rhombus 400 450 50 100 #ffff00 #ffff00 0 100 90 
+ellipse 100 100 70 30 #ffc100 0 0 0
+ellipse 100 100 70 30 #ffc100 0 0 90
+triangle 200 200 250 250 150 250 #ffff00 #ffff00 50 100 0
 triangle 200 200 250 250 150 250 #ffff00 #ffff00 0 0 90
+trapezoid 400 200 50 100 50 #ffff00 #ffff00 0 0 0
+trapezoid 400 200 50 100 50 #ffff00 #ffff00 0 -100 90

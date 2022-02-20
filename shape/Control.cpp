@@ -16,6 +16,7 @@ CRemoteControl::CRemoteControl(std::ifstream & input, std::ostream & output, std
 		{ "triangle", bind(&CRemoteControl::CreateTriangle, this, _1) },
 		{ "ellipse", bind(&CRemoteControl::CreateEllipse, this, _1) },
 		{ "rhombus", bind(&CRemoteControl::CreateRhombus, this, _1) },
+		{ "trapezoid", bind(&CRemoteControl::CreateTrapezoid, this, _1) },
 })
 {
 }
@@ -263,6 +264,49 @@ bool CRemoteControl::CreateRhombus(std::istream & args)
 	if (ConvertHexInRGBColor(tokens[4], outlineColor) && ConvertHexInRGBColor(tokens[5], fillColor))
 	{
 		m_shapes.push_back(std::make_shared<CRhombus>(CRhombus(position, width, height, outlineColor, fillColor, rotationAngle)));
+		return true;
+	}
+	return false;
+}
+
+bool CRemoteControl::CreateTrapezoid(std::istream & args)
+{
+	std::string shapeSpecification;
+	getline(args, shapeSpecification);
+	std::vector<std::string> tokens = GetTokens(shapeSpecification);
+	if (tokens.size() != 10)
+	{
+		m_output << "Invalid number of parameters!!!\n"
+			<< "Usage: <x1> <y1> <topy_width> <bottom_width> <height> <colorOutline> <fillColor> <move_x> <move_y> <rotation_angle>\n";
+		return false;
+	}
+	Point position;
+	float topWidth;
+	float bottomWidth;
+	float height;
+	float rotationAngle;
+	try
+	{
+		float move_x = boost::lexical_cast<float>(tokens[7]);
+		float move_y = boost::lexical_cast<float>(tokens[8]);
+		position.x = boost::lexical_cast<float>(tokens[0]) + move_x;
+		position.y = boost::lexical_cast<float>(tokens[1]) + move_y;
+		topWidth = boost::lexical_cast<float>(tokens[2]);
+		bottomWidth = boost::lexical_cast<float>(tokens[3]);
+		height = boost::lexical_cast<float>(tokens[4]);
+		rotationAngle = boost::lexical_cast<float>(tokens[9]);
+	}
+	catch (boost::bad_lexical_cast const& error)
+	{
+		m_output << error.what() << "\n";
+		return false;
+	}
+
+	Color outlineColor;
+	Color fillColor;
+	if (ConvertHexInRGBColor(tokens[5], outlineColor) && ConvertHexInRGBColor(tokens[6], fillColor))
+	{
+		m_shapes.push_back(std::make_shared<CTrapezoid>(CTrapezoid(position, topWidth, bottomWidth, height, outlineColor, fillColor, rotationAngle)));
 		return true;
 	}
 	return false;

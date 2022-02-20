@@ -66,24 +66,4 @@ void CRectangle::Draw(ICanvas & canvas) const
     canvas.DrawLine(m_vertices[2], m_vertices[3], m_outlineColor);
     canvas.DrawLine(m_vertices[3], m_vertices[0], m_outlineColor);
     canvas.FillPolygon(m_vertices, m_fillColor);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
