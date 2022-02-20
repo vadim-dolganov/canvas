@@ -15,7 +15,7 @@ CRemoteControl::CRemoteControl(std::ifstream & input, std::ostream & output, std
         { "rectangle", bind(&CRemoteControl::CreateRectangle, this, _1) },
 		{ "triangle", bind(&CRemoteControl::CreateTriangle, this, _1) },
 		{ "ellipse", bind(&CRemoteControl::CreateEllipse, this, _1) },
-		{ "trapezoid", bind(&CRemoteControl::CreateTrapezoid, this, _1) },
+		{ "rhombus", bind(&CRemoteControl::CreateRhombus, this, _1) },
 })
 {
 }
@@ -227,7 +227,7 @@ bool CRemoteControl::CreateRectangle(std::istream & args)
 	return false;
 }
 
-bool CRemoteControl::CreateTrapezoid(std::istream & args)
+bool CRemoteControl::CreateRhombus(std::istream & args)
 {
 	std::string shapeSpecification;
 	getline(args, shapeSpecification);
@@ -262,7 +262,7 @@ bool CRemoteControl::CreateTrapezoid(std::istream & args)
 	Color fillColor;
 	if (ConvertHexInRGBColor(tokens[4], outlineColor) && ConvertHexInRGBColor(tokens[5], fillColor))
 	{
-		m_shapes.push_back(std::make_shared<CTrapezoid>(CTrapezoid(position, width, height, outlineColor, fillColor, rotationAngle)));
+		m_shapes.push_back(std::make_shared<CRhombus>(CRhombus(position, width, height, outlineColor, fillColor, rotationAngle)));
 		return true;
 	}
 	return false;

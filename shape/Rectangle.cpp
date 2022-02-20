@@ -53,8 +53,6 @@ void CRectangle::AppendProperties(std::ostream & strm) const
 {
     strm << "  Width = " << m_width
 		<< "  Height = " << m_height
-		<< "  Perimeter = " << GetPerimeter()
-		<< "  Area = " << GetArea()
 		<< "  Coordinate 1 point  = " << m_vertices[0].x << " : " << m_vertices[0].y
 		<< "  Coordinate 2 point  = " << m_vertices[1].x << " : " << m_vertices[1].y
 		<< "  Coordinate 3 point  = " << m_vertices[2].x << " : " << m_vertices[2].y

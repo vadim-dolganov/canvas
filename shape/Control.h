@@ -5,7 +5,7 @@
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Ellipse.h"
-#include "Trapezoid.h"
+#include "Rhombus.h"
 #include "Triangle.h"
 #include "Color.h"
 
@@ -21,7 +21,7 @@ private:
     bool CreateLine(std::istream & args);
     bool CreateCircle(std::istream & args);
     bool CreateRectangle(std::istream & args);
-	bool CreateTrapezoid(std::istream & args);
+	bool CreateRhombus(std::istream & args);
 	bool CreateTriangle(std::istream & args);
 	bool CreateEllipse(std::istream & args);
     std::vector<std::string> GetTokens(std::string const& shapeSpecification) const;

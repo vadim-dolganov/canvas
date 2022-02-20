@@ -4,11 +4,11 @@
 #include "SolidShape.h"
 #include "Color.h"
 
-class CTrapezoid : public ISolidShape
+class CRhombus : public ISolidShape
 {
 public:
-	CTrapezoid(Point const& center, float width, float height, Color const& outlineColor, Color const& fillColor, float rotationAngle);
-	~CTrapezoid() = default;
+	CRhombus(Point const& center, float width, float height, Color const& outlineColor, Color const& fillColor, float rotationAngle);
+	~CRhombus() = default;
 	float GetArea() const override;
 	float GetPerimeter() const override;
 	Color GetOutlineColor() const override;

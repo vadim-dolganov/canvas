@@ -66,9 +66,7 @@ float CTriangle::GetPerimeter() const
 
 void CTriangle::AppendProperties(std::ostream & strm) const
 {
-	strm << "  Perimeter = " << GetPerimeter()
-		<< "  Area = " << GetArea()
-		<< "  Coordinate 1 point  = " << m_vertices[0].x << " : " << m_vertices[0].y
+	strm << "  Coordinate 1 point  = " << m_vertices[0].x << " : " << m_vertices[0].y
 		<< "  Coordinate 2 point  = " << m_vertices[1].x << " : " << m_vertices[1].y
 		<< "  Coordinate 3 point  = " << m_vertices[2].x << " : " << m_vertices[2].y;
 }
