@@ -15,6 +15,7 @@ CRemoteControl::CRemoteControl(std::ifstream & input, std::ostream & output, std
         { "rectangle", bind(&CRemoteControl::CreateRectangle, this, _1) },
 		{ "triangle", bind(&CRemoteControl::CreateTriangle, this, _1) },
 		{ "ellipse", bind(&CRemoteControl::CreateEllipse, this, _1) },
+		{ "trapezoid", bind(&CRemoteControl::CreateTrapezoid, this, _1) },
 })
 {
 }
@@ -187,43 +188,84 @@ bool CRemoteControl::CreateEllipse(std::istream & args)
 
 bool CRemoteControl::CreateRectangle(std::istream & args)
 {
-    std::string shapeSpecification;
-    getline(args, shapeSpecification);
-    std::vector<std::string> tokens = GetTokens(shapeSpecification);
-    if (tokens.size() != 9)
-    {
-        m_output << "Invalid number of parameters!!!\n"
-            << "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y>\n";
-        return false;
-    }
-    Point position;
-    float width;
+	std::string shapeSpecification;
+	getline(args, shapeSpecification);
+	std::vector<std::string> tokens = GetTokens(shapeSpecification);
+	if (tokens.size() != 9)
+	{
+		m_output << "Invalid number of parameters!!!\n"
+			<< "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y>\n";
+		return false;
+	}
+	Point position;
+	float width;
 	float height;
 	float rotationAngle;
-    try
-    {
+	try
+	{
 		float move_x = boost::lexical_cast<float>(tokens[6]);
 		float move_y = boost::lexical_cast<float>(tokens[7]);
-        position.x = boost::lexical_cast<float>(tokens[0]) + move_x;
-        position.y = boost::lexical_cast<float>(tokens[1]) + move_y;
-        width = boost::lexical_cast<float>(tokens[2]);
+		position.x = boost::lexical_cast<float>(tokens[0]) + move_x;
+		position.y = boost::lexical_cast<float>(tokens[1]) + move_y;
+		width = boost::lexical_cast<float>(tokens[2]);
 		height = boost::lexical_cast<float>(tokens[3]);
 		rotationAngle = boost::lexical_cast<float>(tokens[8]);
-    }
-    catch (boost::bad_lexical_cast const& error)
-    {
-        m_output << error.what() << "\n";
-        return false;
-    }
+	}
+	catch (boost::bad_lexical_cast const& error)
+	{
+		m_output << error.what() << "\n";
+		return false;
+	}
 
-    Color outlineColor;
-    Color fillColor;
-    if (ConvertHexInRGBColor(tokens[4], outlineColor) && ConvertHexInRGBColor(tokens[5], fillColor))
-    {
-        m_shapes.push_back(std::make_shared<CRectangle>(CRectangle(position, width, height, outlineColor, fillColor, rotationAngle)));
-        return true;
-    }
-    return false;
+	Color outlineColor;
+	Color fillColor;
+	if (ConvertHexInRGBColor(tokens[4], outlineColor) && ConvertHexInRGBColor(tokens[5], fillColor))
+	{
+		m_shapes.push_back(std::make_shared<CRectangle>(CRectangle(position, width, height, outlineColor, fillColor, rotationAngle)));
+		return true;
+	}
+	return false;
+}
+
+bool CRemoteControl::CreateTrapezoid(std::istream & args)
+{
+	std::string shapeSpecification;
+	getline(args, shapeSpecification);
+	std::vector<std::string> tokens = GetTokens(shapeSpecification);
+	if (tokens.size() != 9)
+	{
+		m_output << "Invalid number of parameters!!!\n"
+			<< "Usage: <x1> <y1> <width> <height> <colorOutline> <fillColor> <move_x> <move_y>\n";
+		return false;
+	}
+	Point position;
+	float width;
+	float height;
+	float rotationAngle;
+	try
+	{
+		float move_x = boost::lexical_cast<float>(tokens[6]);
+		float move_y = boost::lexical_cast<float>(tokens[7]);
+		position.x = boost::lexical_cast<float>(tokens[0]) + move_x;
+		position.y = boost::lexical_cast<float>(tokens[1]) + move_y;
+		width = boost::lexical_cast<float>(tokens[2]);
+		height = boost::lexical_cast<float>(tokens[3]);
+		rotationAngle = boost::lexical_cast<float>(tokens[8]);
+	}
+	catch (boost::bad_lexical_cast const& error)
+	{
+		m_output << error.what() << "\n";
+		return false;
+	}
+
+	Color outlineColor;
+	Color fillColor;
+	if (ConvertHexInRGBColor(tokens[4], outlineColor) && ConvertHexInRGBColor(tokens[5], fillColor))
+	{
+		m_shapes.push_back(std::make_shared<CTrapezoid>(CTrapezoid(position, width, height, outlineColor, fillColor, rotationAngle)));
+		return true;
+	}
+	return false;
 }
 
 bool CRemoteControl::CreateTriangle(std::istream & args)
