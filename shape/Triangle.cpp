@@ -3,14 +3,17 @@
 #include "SolidShape.h"
 #include "Point.h"
 
-CTriangle::CTriangle(Point const& firstVertex, Point const& secondVertex, Point const& thirdVertex, Color const& outlineColor, Color const& fillColor)
+CTriangle::CTriangle(Point const& firstVertex, Point const& secondVertex, Point const& thirdVertex, Color const& outlineColor, Color const& fillColor, float rotationAngle)
     :ISolidShape("Triangle"),
     m_fillColor(fillColor),
     m_outlineColor(outlineColor)
 {
-    m_vertices.push_back(firstVertex);
-    m_vertices.push_back(secondVertex);
-    m_vertices.push_back(thirdVertex);
+	Point center = { (firstVertex.x + secondVertex.x + thirdVertex.x) / 3, (firstVertex.y + secondVertex.y + thirdVertex.y) / 3 };
+	float c = std::cos(rotationAngle * M_PI / 180);
+	float s = std::sin(rotationAngle * M_PI / 180);
+	m_vertices.push_back({ center.x + (firstVertex.x - center.x) * c - (firstVertex.y - center.y) * s, center.y + (firstVertex.x - center.x) * s + (firstVertex.y - center.y) * c });
+    m_vertices.push_back({ center.x + (secondVertex.x - center.x) * c - (secondVertex.y - center.y) * s, center.y + (secondVertex.x - center.x) * s + (secondVertex.y - center.y) * c });
+    m_vertices.push_back({ center.x + (thirdVertex.x - center.x) * c - (thirdVertex.y - center.y) * s, center.y + (thirdVertex.x - center.x) * s + (thirdVertex.y - center.y) * c });
 }
 
 Color CTriangle::GetOutlineColor() const

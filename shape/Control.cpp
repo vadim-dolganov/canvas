@@ -151,7 +151,7 @@ bool CRemoteControl::CreateEllipse(std::istream & args)
 	std::string shapeSpecification;
 	getline(args, shapeSpecification);
 	std::vector<std::string> tokens = GetTokens(shapeSpecification);
-	if (tokens.size() != 7)
+	if (tokens.size() != 8)
 	{
 		m_output << "Invalid number of parameters!!!\n"
 			<< "Usage: <center_x> <center_y> <radius_x> <radius_y> <fillColor> <move_x> <move_y>\n";
@@ -160,6 +160,7 @@ bool CRemoteControl::CreateEllipse(std::istream & args)
 	Point position;
 	float radius_x;
 	float radius_y;
+	float rotationAngle;
 	try
 	{
 		float move_x = boost::lexical_cast<float>(tokens[5]);
@@ -168,6 +169,7 @@ bool CRemoteControl::CreateEllipse(std::istream & args)
 		position.y = boost::lexical_cast<float>(tokens[1]) + move_y;
 		radius_x = boost::lexical_cast<float>(tokens[2]);
 		radius_y = boost::lexical_cast<float>(tokens[3]);
+		rotationAngle = boost::lexical_cast<float>(tokens[7]);
 	}
 	catch (boost::bad_lexical_cast const& error)
 	{
@@ -177,7 +179,7 @@ bool CRemoteControl::CreateEllipse(std::istream & args)
 	Color fillColor;
 	if (ConvertHexInRGBColor(tokens[4], fillColor))
 	{
-		m_shapes.push_back(std::make_shared<CEllipse>(CEllipse(position, radius_x, radius_y, fillColor)));
+		m_shapes.push_back(std::make_shared<CEllipse>(CEllipse(position, radius_x, radius_y, fillColor, rotationAngle)));
 		return true;
 	}
 	return false;
@@ -229,7 +231,7 @@ bool CRemoteControl::CreateTriangle(std::istream & args)
     std::string shapeSpecification;
     getline(args, shapeSpecification);
     std::vector<std::string> tokens = GetTokens(shapeSpecification);
-    if (tokens.size() != 10)
+    if (tokens.size() != 11)
     {
         m_output << "Invalid number of parameters!!!\n"
             << "Usage: <x1> <y1> <x2> <y2> <x3> <y3> <colorOutline> <fillColor> <move_x> <move_y>\n";
@@ -238,6 +240,7 @@ bool CRemoteControl::CreateTriangle(std::istream & args)
     Point vertex1;
     Point vertex2;
     Point vertex3;
+	float rotationAngle;
     try
     {
 		float move_x = boost::lexical_cast<float>(tokens[8]);
@@ -248,6 +251,7 @@ bool CRemoteControl::CreateTriangle(std::istream & args)
         vertex2.y = boost::lexical_cast<float>(tokens[3]) + move_y;
         vertex3.x = boost::lexical_cast<float>(tokens[4]) + move_x;
         vertex3.y = boost::lexical_cast<float>(tokens[5]) + move_y;
+		rotationAngle = boost::lexical_cast<float>(tokens[10]);
     }
     catch (boost::bad_lexical_cast const& error)
     {
@@ -258,7 +262,7 @@ bool CRemoteControl::CreateTriangle(std::istream & args)
     Color fillColor;
     if (ConvertHexInRGBColor(tokens[6], outlineColor) && ConvertHexInRGBColor(tokens[7], fillColor))
     {
-        m_shapes.push_back(std::make_shared<CTriangle>(CTriangle(vertex1, vertex2, vertex3, outlineColor, fillColor)));
+        m_shapes.push_back(std::make_shared<CTriangle>(CTriangle(vertex1, vertex2, vertex3, outlineColor, fillColor, rotationAngle)));
         return true;
     }
     return false;

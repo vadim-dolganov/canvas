@@ -6,7 +6,7 @@
 class CTriangle : public ISolidShape
 {
 public:
-    CTriangle(Point const& firstVertex, Point const& secondVertex, Point const& thirdVertex, Color const& outlineColor, Color const& fillColor);
+    CTriangle(Point const& firstVertex, Point const& secondVertex, Point const& thirdVertex, Color const& outlineColor, Color const& fillColor, float rotationAngle);
     ~CTriangle() = default;
     float GetArea() const override;
     float GetPerimeter() const override;

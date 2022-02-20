@@ -17,6 +17,6 @@ public:
     void FillPolygon(Vertices const& vertices, Color const& fillColor) override;
 
 	void DrawCircle(Point const& center, float radius, Color const& outlineColor) override;
-	void DrawEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor) override;
+	void DrawEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor, float rotationAngle) override;
 	void FillCircle(Point const& center, float radius, Color const& fillColor) override;
 };

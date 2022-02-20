@@ -6,7 +6,7 @@
 class CEllipse : public ISolidShape
 {
 public:
-	CEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor);
+	CEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor, float rotationAngle);
 	~CEllipse() = default;
 	float GetArea() const override;
 	float GetPerimeter() const override;
@@ -24,4 +24,5 @@ private:
 	float m_radius_x;
 	float m_radius_y;
 	Color m_fillColor;
+	float m_rotationAngle;
 };

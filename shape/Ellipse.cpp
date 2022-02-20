@@ -4,12 +4,13 @@
 #include "Point.h"
 #include "const.h"
 
-CEllipse::CEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor)
+CEllipse::CEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor, float rotationAngle)
 	:ISolidShape("Ellipse"),
 	m_center(center),
 	m_radius_x(xRadius),
 	m_radius_y(yRadius),
-	m_fillColor(fillColor)
+	m_fillColor(fillColor),
+	m_rotationAngle(rotationAngle)
 {
 }
 
@@ -55,5 +56,5 @@ void CEllipse::AppendProperties(std::ostream & strm) const
 
 void CEllipse::Draw(ICanvas & canvas) const
 {
-	canvas.DrawEllipse(m_center, m_radius_x, m_radius_y, m_fillColor);
+	canvas.DrawEllipse(m_center, m_radius_x, m_radius_y, m_fillColor, m_rotationAngle);
 }

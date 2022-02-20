@@ -70,16 +70,19 @@ void CCanvas::FillCircle(Point const& center, float radius, Color const& fillCol
 	glEnd();
 }
 
-void CCanvas::DrawEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor)
+void CCanvas::DrawEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor, float rotationAngle)
 {
-	const float step = float(2 * M_PI / MAX_ANGLE);
-
+	const float step = float(1 * M_PI / MAX_ANGLE);
+	const float c = std::cos(rotationAngle * M_PI / 180);
+	const float s = std::sin(rotationAngle * M_PI / 180);
 	glBegin(GL_LINE_STRIP);
 	for (float angle = 0; angle < float(2 * M_PI); angle += step)
 	{
 		const float dx = xRadius * cosf(angle);
 		const float dy = yRadius * sinf(angle);
-		glVertex2f(dx + center.x, dy + center.y);
+		const float rotate_x = dx *  c - dy * s;
+		const float rotate_y = dy *  c + dx * s;
+		glVertex2f(rotate_x + center.x, rotate_y + center.y);
 	}
 	glEnd();
 }

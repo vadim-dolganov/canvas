@@ -13,5 +13,5 @@ public:
 
     virtual void DrawCircle(Point const& center, float radius, Color const& outlineColor) = 0;
 	virtual void FillCircle(Point const& center, float radius, Color const& fillColor) = 0;
-	virtual void DrawEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor) = 0;
+	virtual void DrawEllipse(Point const& center, float xRadius, float yRadius, Color const& fillColor, float rotationAngle) = 0;
 };
