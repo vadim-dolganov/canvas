@@ -176,10 +176,12 @@
     <ClInclude Include="Ellipse.h" />
     <ClInclude Include="ICanvas.h" />
     <ClInclude Include="ICanvasDrawable.h" />
+    <ClInclude Include="IShapeFactory.h" />
     <ClInclude Include="LineSegment.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="IShape.h" />
+    <ClInclude Include="ShapeFactory.h" />
     <ClInclude Include="SolidShape.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -198,11 +200,13 @@
     <ClCompile Include="Ellipse.cpp" />
     <ClCompile Include="ICanvas.cpp" />
     <ClCompile Include="ICanvasDrawable.cpp" />
+    <ClCompile Include="IShapeFactory.cpp" />
     <ClCompile Include="LineSegment.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="IShape.cpp" />
+    <ClCompile Include="ShapeFactory.cpp" />
     <ClCompile Include="SolidShape.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
